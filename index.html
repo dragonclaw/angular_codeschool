@@ -38,8 +38,26 @@
 				<p>Shine: {{product.shine}}</p>
 			</div>
 			<div ng-show="data.isActive(3)" class="panel">
-				<h3>Reviews</h3>
-				<p>Reviews goes here</p>
+				<h3 >Reviews</h3>
+				<blockquote ng-repeat="review in product.reviews">
+					<p><b>Stars = {{review.stars}}</b></p>
+					<p>Comment: {{review.body}}</p>
+					<p><cite>Created by:{{review.author}}</cite></p>
+					<p>On Date: {{review.createdOn}}</p>
+				</blockquote>
+				<form name="reviewForm">
+				<p>Submit a Review</p>
+				<p>How many Stars:</p><select ng-model="review.stars">
+					<option value="1"> 1 Star </option>
+					<option value="2"> 2 Star </option>
+					<option value="3"> 3 Star </option>
+					<option value="4"> 4 Star </option>
+					<option value="5"> 5 Star </option>
+				</select>
+				<p>Give a Review here:</p><textarea cols="30" rows="3" ng-model="review.body"></textarea>
+				<p>By:</p> <input type="email" ng-model="review.author"/>
+				<input type="submit" value="Submit"/>
+			</form>
 			</div>
       </section>
 	</div>
