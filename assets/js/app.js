@@ -1,5 +1,6 @@
 (function(){
-var gems = [{
+var gems = [
+    {
       name: 'Azurite',
       description: "Some gems have hidden qualities beyond their luster, beyond their shine... Azurite is one of those gems.",
       shine: 8,
@@ -8,10 +9,10 @@ var gems = [{
       color: '#CCC',
       faces: 14,
       images: [
-      "assets/img/gem-02.gif",
-      "assets/img/gem-05.gif",
-      "assets/img/gem-09.gif"
-    ],
+        "assets/img/gem-02.gif",
+        "assets/img/gem-05.gif",
+        "assets/img/gem-09.gif"
+      ],
       reviews: [{
         stars: 5,
         body: "I love this gem!",
@@ -23,7 +24,8 @@ var gems = [{
         author: "tim@example.org",
         createdOn: 1397490980837
       }]
-    }, {
+    },
+    {
       name: 'Bloodstone',
       description: "Origin of the Bloodstone is unknown, hence its low value. It has a very high shine and 12 sides, however.",
       shine: 9,
@@ -32,10 +34,10 @@ var gems = [{
       color: '#EEE',
       faces: 12,
       images: [
-      "assets/img/gem-01.gif",
-      "assets/img/gem-03.gif",
-      "assets/img/gem-04.gif"
-    ],
+        "assets/img/gem-01.gif",
+        "assets/img/gem-03.gif",
+        "assets/img/gem-04.gif",
+      ],
       reviews: [{
         stars: 3,
         body: "I think this gem was just OK, could honestly use more shine, IMO.",
@@ -47,7 +49,8 @@ var gems = [{
         author: "gemsRock@example.org",
         createdOn: 1397490980837
       }]
-    }, {
+    },
+    {
       name: 'Zircon',
       description: "Zircon is our most coveted and sought after gem. You will pay much to be the proud owner of this gorgeous and high shine gem.",
       shine: 70,
@@ -56,10 +59,10 @@ var gems = [{
       color: '#000',
       faces: 6,
       images: [
-      "assets/img/gem-06.gif",
-      "assets/img/gem-07.gif",
-      "assets/img/gem-10.gif"
-    ],
+        "assets/img/gem-06.gif",
+        "assets/img/gem-07.gif",
+        "assets/img/gem-09.gif"
+      ],
       reviews: [{
         stars: 1,
         body: "This gem is WAY too expensive for its rarity value.",
@@ -76,14 +79,40 @@ var gems = [{
         author: "nat@example.org",
         createdOn: 1397490980837
       }]
-    }];
+    }
+  ];
 
   var app = angular.module('gemStore', []);
 
   app.controller("StoreController",function($scope){
    this.products=gems;
 
-   
+
+  });
+
+  app.controller("DataController", function($scope){
+  	this.tab=1;
+  	this.selectTab=function(setTab){
+  		this.tab=setTab;
+  	}
+  	this.isActive=function(setTab){
+  		if(this.tab===setTab)
+  			return true;
+  		else return false;
+  	}
+
+  });
+
+  app.controller("GalleryController", function($scope){
+  	this.current=0;
+  	this.hasImages=function(gallery){
+  		if(gallery.length>0)
+  			return true;
+  		else return false;
+  	};
+  	this.setCurrent=function(currentPic){
+  		this.current=currentPic;
+  	};
   });
 
 })();
