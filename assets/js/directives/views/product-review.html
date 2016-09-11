@@ -1,0 +1,31 @@
+ <div class="panel">
+				<h3 >Reviews</h3>
+				<blockquote ng-repeat="review in product.reviews">
+					<p><b>Stars = {{review.stars}}</b></p>
+					<p>Comment: {{review.body}}</p>
+					<p><cite>Created by:{{review.author}}</cite></p>
+					<p>On Date: {{review.createdOn |date}}</p>
+				</blockquote>
+ <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
+				 <!--  Live Preview -->
+				 <blockquote>
+           			<p><b>Stars = {{reviewCtrl.review.stars}}</b></p>
+					<p>Comment: {{reviewCtrl.review.body}}</p>
+					<p><cite>Created by:{{reviewCtrl.review.author}}</cite></p>
+					<p>On Date: {{reviewCtrl.dating()|date}}</p>
+				</blockquote>
+              
+				<p>Submit a Review</p>
+				<p>How many Stars:</p><select ng-model="reviewCtrl.review.stars" required>
+					<option value="1"> 1 Star </option>
+					<option value="2"> 2 Star </option>
+					<option value="3"> 3 Star </option>
+					<option value="4"> 4 Star </option>
+					<option value="5"> 5 Star </option>
+				</select>
+				<p>Give a Review here:</p><textarea cols="30" rows="3" ng-model="reviewCtrl.review.body" required></textarea>
+				<p>By:</p> <input type="email" ng-model="reviewCtrl.review.author" required/>
+				<input type="submit" value="Submit"/>
+				<div> reviewForm is {{reviewForm.$valid}} </div>
+			</form>
+</div>

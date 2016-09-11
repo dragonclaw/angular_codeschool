@@ -5,6 +5,9 @@
 	<title>Angular Learn Proyect</title>
 	<script src="assets/js/angular.min.js"></script>
 	<script src="assets/js/app.js"></script>
+	<script src="assets/js/directives/directives.js"></script>
+	<script src="assets/js/controllers/controllers.js"></script>
+
 	<link rel="stylesheet" href="dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="dist/css/main.css">
 </head>
@@ -13,53 +16,8 @@
 	<div ng-repeat="product in store.products" class="list-group-item">
 	<h3>{{product.name}} <em class="pull-right"> {{product.price |currency}}</em></h3>
 	<button class="pull-right">Add to Cart</button>
-		<div ng-controller="GalleryController as gallery" ng-show="gallery.hasImages(product.gallery)" class="gallery">
-        <div class="img-wrap">
-          <img ng-src="{{product.images[gallery.current]}}" />
-        </div>
-        <ul class="img-thumbnails clearfix">
-          <li ng-repeat="image in product.images" class="small-image pull-left thumbnail">
-            <img ng-click="gallery.setCurrent($index)"ng-src="{{image}}" />
-          </li>
-        </ul>
-      </div>
-      <section ng-controller="DataController as data" class="tab">
-      	<ul class="nav nav-pills">
-      		<li ng-class="{active:data.isActive(1)}"> <a ng-click="data.selectTab(1)" href="">Description</a> </li>
-      		<li ng-class="{active:data.isActive(2)}"> <a ng-click="data.selectTab(2)" href="">Specification</a> </li>
-      		<li ng-class="{active:data.isActive(3)}"> <a ng-click="data.selectTab(3)" href="">Reviews</a> </li>
-      	</ul>
-			<div ng-show="data.isActive(1)" class="panel">
-				<h3>Description</h3>
-				<p>{{product.description}}</p>
-			</div>
-			<div ng-show="data.isActive(2)" class="panel">
-				<h3>Specification</h3>
-				<p>Shine: {{product.shine}}</p>
-			</div>
-			<div ng-show="data.isActive(3)" class="panel">
-				<h3 >Reviews</h3>
-				<blockquote ng-repeat="review in product.reviews">
-					<p><b>Stars = {{review.stars}}</b></p>
-					<p>Comment: {{review.body}}</p>
-					<p><cite>Created by:{{review.author}}</cite></p>
-					<p>On Date: {{review.createdOn}}</p>
-				</blockquote>
-				<form name="reviewForm">
-				<p>Submit a Review</p>
-				<p>How many Stars:</p><select ng-model="review.stars">
-					<option value="1"> 1 Star </option>
-					<option value="2"> 2 Star </option>
-					<option value="3"> 3 Star </option>
-					<option value="4"> 4 Star </option>
-					<option value="5"> 5 Star </option>
-				</select>
-				<p>Give a Review here:</p><textarea cols="30" rows="3" ng-model="review.body"></textarea>
-				<p>By:</p> <input type="email" ng-model="review.author"/>
-				<input type="submit" value="Submit"/>
-			</form>
-			</div>
-      </section>
+		<gallery-imgs class="gallery"></gallery-imgs>
+      <product-tabs class="tab"></product-tabs>
 	</div>
 </div>
 	

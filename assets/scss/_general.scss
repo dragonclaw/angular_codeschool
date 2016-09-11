@@ -1,0 +1,8 @@
+.ng-dirty{
+	.ng-invalid{
+		border-color:$reddy;
+	}
+	.ng-valid{
+		border-color:green;
+	}
+}

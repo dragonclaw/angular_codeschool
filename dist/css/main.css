@@ -1,0 +1,6 @@
+.ng-dirty .ng-invalid {
+  border-color: #aa00ff; }
+.ng-dirty .ng-valid {
+  border-color: green; }
+
+/*# sourceMappingURL=main.css.map */
