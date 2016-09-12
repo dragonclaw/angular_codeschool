@@ -3,10 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Angular Learn Proyect</title>
-	<script src="assets/js/angular.min.js"></script>
+<script src="assets/js/angular.min.js"></script>
 	<script src="assets/js/app.js"></script>
 	<script src="assets/js/directives/directives.js"></script>
 	<script src="assets/js/controllers/controllers.js"></script>
+	<script src="assets/js/services/gems.js"></script>
 
 	<link rel="stylesheet" href="dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="dist/css/main.css">
@@ -14,12 +15,13 @@
 <body class="container" ng-controller="StoreController as store">
 <div class="list-group">
 	<div ng-repeat="product in store.products" class="list-group-item">
-	<h3>{{product.name}} <em class="pull-right"> {{product.price |currency}}</em></h3>
-	<button class="pull-right">Add to Cart</button>
-		<gallery-imgs class="gallery"></gallery-imgs>
-      <product-tabs class="tab"></product-tabs>
+		<h3>{{product.name}} <em class="pull-right"> {{product.price |currency}}</em></h3>
+			<button class="pull-right">Add to Cart</button>
+	<gallery-imgs class="gallery"></gallery-imgs>
+    <product-tabs class="tab"></product-tabs>
 	</div>
 </div>
 	
 </body>
+
 </html>

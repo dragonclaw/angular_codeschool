@@ -1,8 +1,8 @@
-app.controller('StoreController', ['$http', function($http,$scope){
+app.controller('StoreController', ['$scope','gemJson', function($scope,gemJson){
 	store=this;
-	$http.get('assets/js/gems.json').success(function(data){
-		store.products = data;
-	});
+  gemJson.success(function(data){
+  store.products=data;
+  });
 }]);
 
 app.controller('ReviewController', function($scope){
